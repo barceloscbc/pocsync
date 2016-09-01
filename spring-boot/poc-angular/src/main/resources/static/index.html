@@ -5,31 +5,71 @@
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="app" class="no-js">
 <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Spring boot and Angularjs Tutorial</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/webjars/angular-material/1.1.0/angular-material.min.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-		<base href='http://localhost:8080/'>
-	</head>
-<body>
-	<h2>Administrator Panel</h2>
-	<ul class="nav nav-tabs">
-       <li ng-class="{active: activetab == '/'}"><a href="#/home">Home</a></li>
-       <li ng-class="{active: activetab == '/sobre'}"><a href="#/sobre">Sobre</a></li>
-       <li ng-class="{active: activetab == '/contato'}"><a href="#/contato">Contato</a></li>
-    </ul>
-	<div ng-view></div>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Spring boot and Angularjs Tutorial</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/webjars/angular-material/1.1.0/angular-material.min.css">
+<link rel="stylesheet"	href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<base href='/'>
+</head>
+<body ng-cloak ng-controller="mainController">
+  	<md-toolbar ng-show="!showSearch">
+	  <div class="md-toolbar-tools">
+	    <md-button ng-click="toggleLeft()"  aria-label="Menu">
+	      <ng-md-icon icon="menu"></ng-md-icon>
+	    </md-button>
+	    <h3>
+	      Dashboard
+	    </h3>
+	    <span flex></span>
+	    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+	      <ng-md-icon icon="search"></ng-md-icon>
+	    </md-button>
+	    <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+	      <ng-md-icon icon="more_vert"></ng-md-icon>
+	    </md-button>
+	  </div>
+	</md-toolbar>
+	
+    <div layout="row" flex>
+    	<md-sidenav class="md-sidenav-left" md-component-id="left"  md-disable-backdrop md-whiteframe="4">
+    		<md-toolbar class="md-theme-indigo">
+	        	<h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+	     	 </md-toolbar>
+		      <md-content layout-margin>
+		        <p>
+		          This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+		        </p>
+		        <md-button ng-click="toggleLeft()" class="md-accent">
+		          Close this Sidenav
+		        </md-button>
+		      </md-content>
+        </md-sidenav>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+ 				<div ng-view></div>
+            </md-content>
+        </div>
+    </div>
+	   
+	   
+	<script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
 	<script src="/webjars/angularjs/1.4.9/angular.min.js"></script>
 	<script src="/webjars/angularjs/1.4.9/angular-resource.min.js"></script>
 	<script src="/webjars/angularjs/1.4.9/angular-route.min.js"></script>
 	<script src="/webjars/angularjs/1.4.9/angular-animate.min.js"></script>
 	<script src="/webjars/angularjs/1.4.9/angular-aria.min.js"></script>
+	<script src="/webjars/angular-messages/1.5.8/angular-messages.min.js"></script>
+	<script src="/webjars/angular-blocks/0.1.8/angular-blocks.min.js"></script>
 	<script src="/app.js"></script>
 	<script src="/controllers/cliente-controller.js"></script>
+	<script src="/controllers/main-controller.js"></script>
 	<script src="/webjars/angular-material/1.1.0/angular-material.min.js"></script>
+	<script src="/webjars/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
 </body>
 </html>

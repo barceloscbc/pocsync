@@ -1,3 +1,18 @@
-<div class="page-header">
-   <h1>Página Home!</h1>
-</div>
+<md-menu-bar>
+	<md-menu>
+		<button ng-click="$mdOpenMenu()">
+		File
+		</button>
+		<md-menu-content>
+			<md-menu-item>
+				<md-button ng-click="ctrl.sampleAction('share', $event)">
+					Share...
+				</md-button>
+			</md-menu-item>
+			<md-menu-divider></md-menu-divider>
+			<md-menu-item>
+			
+			</md-menu-item>
+		</md-menu-content>
+	</md-menu>
+</md-menu-bar> 
